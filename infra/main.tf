@@ -1,3 +1,13 @@
+import {
+  to = aws_ecr_repository.backend
+  id = "pmo-backend"
+}
+
+import {
+  to = aws_ecr_repository.frontend
+  id = "pmo-frontend"
+}
+
 provider "aws" {
   region = var.aws_region
 }

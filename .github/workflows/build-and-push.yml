@@ -57,11 +57,6 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
 
-    - name: Ensure ECR Repositories Exist
-      run: |
-        aws ecr describe-repositories --repository-names pmo-backend || aws ecr create-repository --repository-name pmo-backend
-        aws ecr describe-repositories --repository-names pmo-frontend || aws ecr create-repository --repository-name pmo-frontend
-
     - name: Build and push Backend
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
