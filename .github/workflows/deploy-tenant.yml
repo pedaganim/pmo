@@ -1,0 +1,41 @@
+name: Deploy Tenant
+
+on:
+  workflow_dispatch:
+    inputs:
+      tenant_id:
+        description: 'Tenant ID (e.g. nhanya)'
+        required: true
+      domain_name:
+        description: 'Domain Name (e.g. pmo.nhanya.org)'
+        required: true
+
+jobs:
+  deploy:
+    name: Deploy Tenant
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-southeast-2
+
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v2
+
+    - name: Terraform Init
+      run: terraform init
+      working-directory: ./infra
+
+    - name: Terraform Apply
+      run: |
+        terraform apply -auto-approve \
+          -var="tenant_id=${{ github.event.inputs.tenant_id }}" \
+          -var="domain_name=${{ github.event.inputs.domain_name }}"
+      working-directory: ./infra
