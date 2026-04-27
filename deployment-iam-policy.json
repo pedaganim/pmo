@@ -10,6 +10,8 @@
         "elasticloadbalancing:*",
         "ec2:*",
         "logs:*",
+        "s3:*",
+        "dynamodb:*",
         "iam:PassRole",
         "iam:CreateRole",
         "iam:DeleteRole",

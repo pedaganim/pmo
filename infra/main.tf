@@ -1,21 +1,16 @@
-import {
-  to = aws_ecr_repository.backend
-  id = "pmo-backend"
-}
-
-import {
-  to = aws_ecr_repository.frontend
-  id = "pmo-frontend"
-}
-
-import {
-  to = aws_lb.pmo_alb
-  id = "arn:aws:elasticloadbalancing:ap-southeast-2:967438331002:loadbalancer/app/pmo-alb/e0e9ccaa1ca1" # Replace with actual ARN if this changes
+terraform {
+  backend "s3" {
+    bucket         = "pmo-terraform-state-967438331002" # CHANGE THIS to your bucket name
+    key            = "terraform.tfstate"
+    region         = "ap-southeast-2"
+    dynamodb_table = "pmo-terraform-lock"
+  }
 }
 
 provider "aws" {
   region = var.aws_region
 }
+
 
 # --- VPC & Networking ---
 module "vpc" {
