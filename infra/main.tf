@@ -8,6 +8,11 @@ import {
   id = "pmo-frontend"
 }
 
+import {
+  to = aws_lb.pmo_alb
+  id = "arn:aws:elasticloadbalancing:ap-southeast-2:967438331002:loadbalancer/app/pmo-alb/e0e9ccaa1ca1" # Replace with actual ARN if this changes
+}
+
 provider "aws" {
   region = var.aws_region
 }
