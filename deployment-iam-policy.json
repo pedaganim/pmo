@@ -43,10 +43,13 @@
         "iam:PassRole",
         "iam:CreateOpenIDConnectProvider",
         "iam:DeleteOpenIDConnectProvider",
-        "iam:UpdateOpenIDConnectProvider",
         "iam:GetOpenIDConnectProvider",
         "iam:ListOpenIDConnectProviders",
-        "iam:TagOpenIDConnectProvider"
+        "iam:UpdateOpenIDConnectProviderThumbprint",
+        "iam:AddClientIDToOpenIDConnectProvider",
+        "iam:RemoveClientIDFromOpenIDConnectProvider",
+        "iam:TagOpenIDConnectProvider",
+        "iam:UntagOpenIDConnectProvider"
       ],
       "Resource": "*"
     },
