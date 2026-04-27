@@ -16,7 +16,10 @@
         "ecr:CreateRepository",
         "ecr:DeleteRepository",
         "ecr:ListImages",
-        "ecr:DescribeImages"
+        "ecr:DescribeImages",
+        "ecr:ListTagsForResource",
+        "ecr:TagResource",
+        "ecr:UntagResource"
       ],
       "Resource": "*"
     },
