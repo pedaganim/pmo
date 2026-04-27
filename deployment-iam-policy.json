@@ -4,50 +4,12 @@
     {
       "Effect": "Allow",
       "Action": [
-        "ecr:GetAuthorizationToken",
-        "ecr:BatchCheckLayerAvailability",
-        "ecr:GetDownloadUrlForLayer",
-        "ecr:BatchGetImage",
-        "ecr:PutImage",
-        "ecr:InitiateLayerUpload",
-        "ecr:UploadLayerPart",
-        "ecr:CompleteLayerUpload",
-        "ecr:DescribeRepositories",
-        "ecr:CreateRepository",
-        "ecr:DeleteRepository",
-        "ecr:ListImages",
-        "ecr:DescribeImages",
-        "ecr:ListTagsForResource",
-        "ecr:TagResource",
-        "ecr:UntagResource"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ecs:DescribeServices",
-        "ecs:UpdateService",
-        "ecs:RegisterTaskDefinition",
-        "ecs:DescribeTaskDefinition",
-        "ecs:ListTasks",
-        "ecs:DescribeTasks"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "rds:DescribeDBInstances",
-        "rds:CreateDBInstance",
-        "rds:DeleteDBInstance",
-        "rds:ModifyDBInstance"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
+        "ecr:*",
+        "ecs:*",
+        "rds:*",
+        "elasticloadbalancing:*",
+        "ec2:*",
+        "logs:*",
         "iam:PassRole",
         "iam:CreateRole",
         "iam:DeleteRole",
@@ -69,20 +31,7 @@
         "iam:UntagOpenIDConnectProvider"
       ],
       "Resource": "*"
-    },
-    {
-        "Effect": "Allow",
-        "Action": [
-            "elasticloadbalancing:*"
-        ],
-        "Resource": "*"
-    },
-    {
-        "Effect": "Allow",
-        "Action": [
-            "ec2:*"
-        ],
-        "Resource": "*"
     }
   ]
 }
+
